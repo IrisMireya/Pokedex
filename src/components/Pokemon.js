@@ -2,8 +2,16 @@ import React from 'react';
 
 const Pokemon = (props) => {
     const { pokemon } = props;
-    const redHeart = "&#10084;&#65039";
+    const { favoritePokemons, updateFavoritePokemons } = useContext(
+        FavoriteContext
+      );
+
+
+    const redHeart = "❤️";
     const blackHeart = "🖤";
+    const heart =   favoritePokemons.includes(pokemon.name) ? redHeart : blackHeart;
+
+
     return (
         <div className='pokemon-card'>
             <div className='pokemon-img-container'>
