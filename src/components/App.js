@@ -35,7 +35,15 @@ export default function App() {
   }, []);
 
   const updateFavoritePokemons = (name) => {
-console.log(name);
+    const updated = [...favorites];
+    const isFavorite = updated.indexOf(name);
+    if (isFavorite >= 0) {
+      updated.splice(isFavorite, 1);
+    } else {
+      updated.push(name);
+    }
+    setFavorites(updated);
+    
   };
 
   return (
