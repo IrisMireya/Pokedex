@@ -15,7 +15,7 @@ const Searchbar = (props) => {
   };
 
   const onClick = async (ev) => {
-    //onSearch(search);
+    onSearch(search);
     const data = await searchPokemon(search);
     setPokemon(data);
   };
