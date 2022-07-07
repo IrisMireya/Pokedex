@@ -12,7 +12,7 @@ const localStorageKey = "favorite_pokemon";
 
 export default function App() {
   const [pokemons, setPokemons] = useState([]);
-  const [page, setPage] = useState();
+  const [page, setPage] = useState(0);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
   const [favorites, setFavorites] = useState([]);
@@ -22,7 +22,7 @@ export default function App() {
   const fetchPokemons = async () => {
     try {
       setLoading(true);
-      const data = await getPokemons();
+      const data = await getPokemons(50, page*50);
       const promises = data.results.map(async (pokemon) => {
         return await getPokemonData(pokemon.url);
       });
